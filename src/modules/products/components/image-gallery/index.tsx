@@ -8,10 +8,9 @@ type ImageGalleryProps = {
 }
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
-  console.table(images)
   return (
     <div className="flex items-start relative">
-      <div className="flex justify-center items-center md:h-[80vh] h-[100vh] lg:w-[40vw] w-full sm:mx-10 mx-0">
+      <div className="flex justify-center items-center md:h-[80vh] h-[100vh] lg:w-[40vw] w-full lg:mx-10 mx-0">
         <CustomSwiper>
           {images.map((image, index) => {
             return (
