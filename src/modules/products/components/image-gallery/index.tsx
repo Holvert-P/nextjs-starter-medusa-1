@@ -1,23 +1,21 @@
+"use client"
 import { HttpTypes } from "@medusajs/types"
-import { Container } from "@medusajs/ui"
+import CustomSwiper from "@modules/common/components/swiper-slides"
 import Image from "next/image"
-
+import { SwiperSlide } from "swiper/react"
 type ImageGalleryProps = {
   images: HttpTypes.StoreProductImage[]
 }
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
+  console.table(images)
   return (
     <div className="flex items-start relative">
-      <div className="flex flex-col flex-1 small:mx-16 gap-y-4">
-        {images.map((image, index) => {
-          return (
-            <Container
-              key={image.id}
-              className="relative aspect-[29/34] w-full overflow-hidden bg-ui-bg-subtle"
-              id={image.id}
-            >
-              {!!image.url && (
+      <div className="flex justify-center items-center md:h-[80vh] h-[100vh] lg:w-[40vw] w-full sm:mx-10 mx-0">
+        <CustomSwiper>
+          {images.map((image, index) => {
+            return (
+              <SwiperSlide key={image.id}>
                 <Image
                   src={image.url}
                   priority={index <= 2 ? true : false}
@@ -29,10 +27,10 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                     objectFit: "cover",
                   }}
                 />
-              )}
-            </Container>
-          )
-        })}
+              </SwiperSlide>
+            )
+          })}
+        </CustomSwiper>
       </div>
     </div>
   )

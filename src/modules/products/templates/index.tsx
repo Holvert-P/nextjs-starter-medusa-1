@@ -1,5 +1,6 @@
 import React, { Suspense } from "react"
 
+import { HttpTypes } from "@medusajs/types"
 import ImageGallery from "@modules/products/components/image-gallery"
 import ProductActions from "@modules/products/components/product-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
@@ -9,7 +10,6 @@ import ProductInfo from "@modules/products/templates/product-info"
 import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-related-products"
 import { notFound } from "next/navigation"
 import ProductActionsWrapper from "./product-actions-wrapper"
-import { HttpTypes } from "@medusajs/types"
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
